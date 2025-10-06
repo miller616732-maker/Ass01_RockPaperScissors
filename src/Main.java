@@ -4,11 +4,15 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         String aMove;
         String bMove;
-        boolean bigValid = false;
+        String yOrn;
+        boolean doContinue = false;
         boolean aValid = false;
         boolean bValid = false;
+        boolean bigValid = false;
         do {
             do {
+                System.out.println("Welcome to Rock Paper Scissors");
+                System.out.println("Player A, please enter r, p, or s");
                 aMove = scan.nextLine();
                 if (aMove.equalsIgnoreCase("r")) {
                     System.out.println("Player A has chosen");
@@ -19,9 +23,13 @@ public class Main {
                 } else if (aMove.equalsIgnoreCase("s")) {
                     System.out.println("Player A has chosen");
                     aValid = true;
+                } else {
+                    System.out.println("Enter a valid input");
+                    scan.nextLine();
                 }
             } while (!aValid);
             do {
+                System.out.println("Player B, please enter r, p, or s");
                 bMove = scan.nextLine();
                 if (bMove.equalsIgnoreCase("r")) {
                     System.out.println("Player B has chosen");
@@ -32,10 +40,68 @@ public class Main {
                 } else if (bMove.equalsIgnoreCase("s")) {
                     System.out.println("Player B has chosen");
                     bValid = true;
+                } else {
+                    System.out.println("Enter a valid input");
+                    scan.nextLine();
                 }
             } while (!bValid);
+            if (aMove.equalsIgnoreCase("r")) {
+                if (bMove.equalsIgnoreCase("r")) {
+                    System.out.println("Both players played rock: Tie");
+                }
+                else if (bMove.equalsIgnoreCase("p")) {
+                    System.out.println("A played rock, B played paper: B Wins");
+                }
+                else if (bMove.equalsIgnoreCase("s")) {
+                    System.out.println("A played rock, B played scissors: A wins");
+                }
+                else {
+                    System.out.println("Enter a valid input");
+                }
+            } else if (aMove.equalsIgnoreCase("p")) {
+                if (bMove.equalsIgnoreCase("r")) {
+                    System.out.println("A played paper, B played rock: B wins");
+                }
+                else if (bMove.equalsIgnoreCase("p")) {
+                    System.out.println("Both players played paper: Tie");
+                }
+                else if (bMove.equalsIgnoreCase("s")) {
+                    System.out.println("A played paper, B played scissors: A wins");
+                }
+                else {
+                    System.out.println("Enter a valid input");
+                }
+            } else if (aMove.equalsIgnoreCase("s")) {
+                    if (bMove.equalsIgnoreCase("r")) {
+                        System.out.println("A played scissors, B played rock: B wins");
+                    }
+                    else if (bMove.equalsIgnoreCase("p")) {
+                        System.out.println("A played scissors, B played paper: A Wins");
+                    }
+                    else if (bMove.equalsIgnoreCase("s")) {
+                        System.out.println("Both players played scissors: Tie");
+                    }
+                    else {
+                        System.out.println("Enter a valid input");
+                    }
+            } else {
+                System.out.println("Enter a valid input");
+            }
+            System.out.println("Continue? [Y/N]");
             do {
-            } while ();
-        }
+                yOrn = scan.nextLine();
+                if (yOrn.equalsIgnoreCase("y")) {
+                    System.out.println("Starting new game");
+                    doContinue = true;
+                } else if (yOrn.equalsIgnoreCase("n")) {
+                    System.out.println("Thanks for playing");
+                    scan.nextLine();
+                    doContinue = true;
+                    bigValid = true;
+                } else {
+                    System.out.println("Enter a valid input");
+                }
+            } while (!doContinue);
+        }while (!bigValid);
     }
 }
