@@ -6,13 +6,13 @@ public class Main {
         String bMove;
         String yOrn;
         boolean doContinue = false;
-        boolean aValid = false;
-        boolean bValid = false;
+        boolean aValid;
+        boolean bValid;
         boolean bigValid = false;
         do {
+            System.out.println("Welcome to Rock Paper Scissors");
+            System.out.println("Player A, please enter r, p, or s");
             do {
-                System.out.println("Welcome to Rock Paper Scissors");
-                System.out.println("Player A, please enter r, p, or s");
                 aMove = scan.nextLine();
                 if (aMove.equalsIgnoreCase("r")) {
                     System.out.println("Player A has chosen");
@@ -25,11 +25,11 @@ public class Main {
                     aValid = true;
                 } else {
                     System.out.println("Enter a valid input");
-                    scan.nextLine();
+                    aValid = false;
                 }
             } while (!aValid);
+            System.out.println("Player B, please enter r, p, or s");
             do {
-                System.out.println("Player B, please enter r, p, or s");
                 bMove = scan.nextLine();
                 if (bMove.equalsIgnoreCase("r")) {
                     System.out.println("Player B has chosen");
@@ -42,7 +42,7 @@ public class Main {
                     bValid = true;
                 } else {
                     System.out.println("Enter a valid input");
-                    scan.nextLine();
+                    bValid = false;
                 }
             } while (!bValid);
             if (aMove.equalsIgnoreCase("r")) {
@@ -60,13 +60,13 @@ public class Main {
                 }
             } else if (aMove.equalsIgnoreCase("p")) {
                 if (bMove.equalsIgnoreCase("r")) {
-                    System.out.println("A played paper, B played rock: B wins");
+                    System.out.println("A played paper, B played rock: A wins");
                 }
                 else if (bMove.equalsIgnoreCase("p")) {
                     System.out.println("Both players played paper: Tie");
                 }
                 else if (bMove.equalsIgnoreCase("s")) {
-                    System.out.println("A played paper, B played scissors: A wins");
+                    System.out.println("A played paper, B played scissors: B wins");
                 }
                 else {
                     System.out.println("Enter a valid input");
